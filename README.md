@@ -1,6 +1,8 @@
-# Dart App engine
-## pub.dev/dapp
+[![Pub Package](https://img.shields.io/pub/v/dapp.svg)](https://pub.dev/packages/dapp)
 
+# Dart Application engine
+
+### [pkg.dev](https://pub.dev/packages/dapp)
 A new flutter plugin project by [Rovergulf Engineers](https://rovergulf.net).
 
 ## Feature proposal:

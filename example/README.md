@@ -1,8 +1,6 @@
-[![Pub Package](https://img.shields.io/pub/v/dapp.svg)](https://pub.dev/packages/dapp)
-
 # dapp_example
 
-Demonstrates how to use the [dapp](https://pub.dev/packages/dapp) plugin.
+Demonstrates how to use the dapp plugin.
 
 ## Getting Started
 
