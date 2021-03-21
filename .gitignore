@@ -52,7 +52,7 @@ vendor/
 .aws/
 .do/
 .gcp/
-
+.gh/
 
 # Miscellaneous
 *.class

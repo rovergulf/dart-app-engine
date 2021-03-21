@@ -1,7 +1,7 @@
 name: dapp
 description: A new flutter plugin project.
 version: 0.0.1-dev
-repository: https://github.com/rovergulf/dart-app-engine
+repository: https://github.com/rovergulf/dapp
 homepage: https://dapp.rovergulf.net
 documentation: https://dapp.rovergulf.net/docs
 
@@ -14,6 +14,8 @@ dependencies:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
+  googleapis_auth: ^1.1.0
+  github: ^8.0.1
 
 dev_dependencies:
   flutter_test:
