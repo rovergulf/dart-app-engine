@@ -1,8 +1,9 @@
 name: dapp
 description: A new flutter plugin project.
 version: 0.0.1
-author:
-homepage: https://github.com/rovergulf/dart-app-engine
+repository: https://github.com/rovergulf/dart-app-engine
+homepage: https://dapp.rovergulf.net
+documentation: https://dapp.rovergulf.net/docs
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
