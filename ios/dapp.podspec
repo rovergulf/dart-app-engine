@@ -5,9 +5,9 @@
 Pod::Spec.new do |s|
   s.name             = 'dapp'
   s.version          = '0.0.1'
-  s.summary          = 'A new flutter plugin project.'
+  s.summary          = 'Flutter engine application plugin'
   s.description      = <<-DESC
-A new flutter plugin project.
+Flutter engine application plugin
                        DESC
   s.homepage         = 'http://example.com'
   s.license          = { :file => '../LICENSE' }

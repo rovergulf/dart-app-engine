@@ -1,4 +1,4 @@
-package com.example.dapp_example
+package net.rovergulf.dapp_example
 
 import io.flutter.embedding.android.FlutterActivity
 

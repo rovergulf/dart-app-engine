@@ -1,4 +1,4 @@
-package com.example.dapp
+package net.rovergulf.dapp
 
 import androidx.annotation.NonNull
 

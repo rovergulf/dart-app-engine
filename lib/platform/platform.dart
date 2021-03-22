@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 
 class Platform {
   static const MethodChannel _channel =
-  const MethodChannel('platform');
+      const MethodChannel('dapp');
 
   static Future<String> get platformVersion async {
     final String version = await _channel.invokeMethod('getPlatformVersion');

@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.dapp_example">
+    package="net.rovergulf.dapp_example">
    <application
         android:label="dapp_example"
         android:icon="@mipmap/ic_launcher">

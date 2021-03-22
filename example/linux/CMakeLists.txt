@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.10)
 project(runner LANGUAGES CXX)
 
 set(BINARY_NAME "dapp_example")
-set(APPLICATION_ID "com.example.dapp")
+set(APPLICATION_ID "net.rovergulf.dapp")
 
 cmake_policy(SET CMP0063 NEW)
 
