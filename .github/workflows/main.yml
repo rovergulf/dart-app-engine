@@ -9,7 +9,7 @@ on:
 
 jobs:
   test:
-    name: Build Flutter (Web)
+    name: Test Flutter Plugin
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -17,6 +17,8 @@ jobs:
         with:
           channel: 'dev'
       - run: flutter pub get
+      - run: flutter test
+      - run: cd example
       - run: flutter test
 #  build_web:
 #    name: Build Flutter (Web)
