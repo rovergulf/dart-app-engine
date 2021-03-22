@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:dapp/dapp.dart';
+import 'package:dapp/platform.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
