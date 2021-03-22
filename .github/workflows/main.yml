@@ -17,6 +17,7 @@ jobs:
         with:
           channel: 'dev'
       - run: flutter pub get
+#      - run: flutter analyze
       - run: flutter test
       - run: cd example
       - run: flutter test

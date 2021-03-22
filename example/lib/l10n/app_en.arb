@@ -1,0 +1,30 @@
+{
+  "homePageTitle": "dapp Example Home",
+  "@homePageTitle": {
+    "description": "Main page title"
+  },
+  "homePageWelcome": "Hello there! Welcome to dapp example application by Rovergulf Engineers!",
+  "@homePageWelcome": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "settingsPageTitle": "Settings",
+  "@settingsPageTitle": {
+    "description": "settings page title"
+  },
+  "notFoundPageTitle": "Not found",
+  "@notFoundPageTitle": {
+    "description": "not found page title"
+  },
+  "resultsCount": "Results count: ",
+  "@resultsCount": {
+    "description": "Describes any list count, i.e. realms, repos etc..."
+  },
+  "goBack": "Go back",
+  "@goBack": {
+    "description": "navigate back"
+  },
+  "unknownErr": "Something went wrong...",
+  "@unknownErr": {
+    "description": "Unexpected error"
+  }
+}

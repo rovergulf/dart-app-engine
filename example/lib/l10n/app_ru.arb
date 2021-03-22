@@ -1,0 +1,9 @@
+{
+  "homePageTitle": "Домашняя страница",
+  "homePageWelcome": "Приветики! Добро пожаловать в демо приложения плагина dapp от Rovergulf Engineers!",
+  "settingsPageTitle": "Настройки",
+  "notFoundPageTitle": "Ничего не найдено!",
+  "resultsCount": "Количество результатов: ",
+  "goBack": "Вернуться назад",
+  "unknownErr": "Что-то пошло не так..."
+}

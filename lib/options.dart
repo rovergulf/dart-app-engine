@@ -113,6 +113,97 @@ class _OptionsItem extends StatelessWidget {
   }
 }
 
+class _BooleanItem extends StatelessWidget {
+  const _BooleanItem(this.title, this.value, this.onChanged, { this.switchKey });
+
+  final String title;
+  final bool value;
+  final ValueChanged<bool> onChanged;
+  // [switchKey] is used for accessing the switch from driver tests.
+  final Key? switchKey;
+
+  @override
+  Widget build(BuildContext context) {
+    final bool isDark = Theme.of(context).brightness == Brightness.dark;
+    return _OptionsItem(
+      child: Row(
+        children: <Widget>[
+          Expanded(child: Text(title)),
+          Switch(
+            key: switchKey,
+            value: value,
+            onChanged: onChanged,
+            activeColor: const Color(0xFF39CEFD),
+            activeTrackColor: isDark ? Colors.white30 : Colors.black26,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _ActionItem extends StatelessWidget {
+  const _ActionItem(this.text, this.onTap);
+
+  final String text;
+  final VoidCallback? onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return _OptionsItem(
+      child: _TextButton(
+        onPressed: onTap,
+        child: Text(text),
+      ),
+    );
+  }
+}
+
+class _TextButton extends StatelessWidget {
+  const _TextButton({ Key? key, this.onPressed, this.child }) : super(key: key);
+
+  final VoidCallback? onPressed;
+  final Widget? child;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    return TextButton(
+      style: TextButton.styleFrom(
+        primary: theme.colorScheme.onPrimary,
+        textStyle: theme.textTheme.subtitle1,
+        padding: EdgeInsets.zero,
+      ),
+      onPressed: onPressed,
+      child: child!,
+    );
+  }
+}
+
+class _Heading extends StatelessWidget {
+  const _Heading(this.text);
+
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+    return _OptionsItem(
+      child: DefaultTextStyle(
+        style: theme.textTheme.headline6!.copyWith(
+          fontFamily: 'GoogleSans',
+          color: theme.colorScheme.onPrimary,
+          fontWeight: FontWeight.w700,
+        ),
+        child: Semantics(
+          child: Text(text),
+          header: true,
+        ),
+      ),
+    );
+  }
+}
+
 class _ThemeModeItem extends StatelessWidget {
   const _ThemeModeItem(this.options, this.onOptionsChanged);
 
@@ -189,18 +280,18 @@ class _TextScaleFactorItem extends StatelessWidget {
               ],
             ),
           ),
-          PopupMenuButton<AppTextScaleValue>(
+          PopupMenuButton<GalleryTextScaleValue>(
             padding: const EdgeInsetsDirectional.only(end: 16.0),
             icon: const Icon(Icons.arrow_drop_down),
             itemBuilder: (BuildContext context) {
-              return kAllAppTextScaleValues.map<PopupMenuItem<AppTextScaleValue>>((AppTextScaleValue scaleValue) {
-                return PopupMenuItem<AppTextScaleValue>(
+              return kAllGalleryTextScaleValues.map<PopupMenuItem<GalleryTextScaleValue>>((GalleryTextScaleValue scaleValue) {
+                return PopupMenuItem<GalleryTextScaleValue>(
                   value: scaleValue,
                   child: Text(scaleValue.label),
                 );
               }).toList();
             },
-            onSelected: (AppTextScaleValue scaleValue) {
+            onSelected: (GalleryTextScaleValue scaleValue) {
               onOptionsChanged!(
                 options!.copyWith(textScaleFactor: scaleValue),
               );
@@ -235,23 +326,211 @@ class _VisualDensityItem extends StatelessWidget {
               ],
             ),
           ),
-          PopupMenuButton<AppVisualDensityValue>(
+          PopupMenuButton<GalleryVisualDensityValue>(
             padding: const EdgeInsetsDirectional.only(end: 16.0),
             icon: const Icon(Icons.arrow_drop_down),
             itemBuilder: (BuildContext context) {
-              return kAllAppVisualDensityValues.map<PopupMenuItem<AppVisualDensityValue>>((AppVisualDensityValue densityValue) {
-                return PopupMenuItem<AppVisualDensityValue>(
+              return kAllGalleryVisualDensityValues.map<PopupMenuItem<GalleryVisualDensityValue>>((GalleryVisualDensityValue densityValue) {
+                return PopupMenuItem<GalleryVisualDensityValue>(
                   value: densityValue,
                   child: Text(densityValue.label),
                 );
               }).toList();
             },
-            onSelected: (AppVisualDensityValue densityValue) {
+            onSelected: (GalleryVisualDensityValue densityValue) {
               onOptionsChanged!(
                 options!.copyWith(visualDensity: densityValue),
               );
             },
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class _TextDirectionItem extends StatelessWidget {
+  const _TextDirectionItem(this.options, this.onOptionsChanged);
+
+  final AppOptions? options;
+  final ValueChanged<AppOptions>? onOptionsChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    return _BooleanItem(
+      'Force RTL',
+      options!.textDirection == TextDirection.rtl,
+          (bool value) {
+        onOptionsChanged!(
+          options!.copyWith(
+            textDirection: value ? TextDirection.rtl : TextDirection.ltr,
+          ),
+        );
+      },
+      switchKey: const Key('text_direction'),
+    );
+  }
+}
+
+class _TimeDilationItem extends StatelessWidget {
+  const _TimeDilationItem(this.options, this.onOptionsChanged);
+
+  final AppOptions? options;
+  final ValueChanged<AppOptions>? onOptionsChanged;
+
+  @override
+  Widget build(BuildContext context) {
+    return _BooleanItem(
+      'Slow motion',
+      options!.timeDilation != 1.0,
+          (bool value) {
+        onOptionsChanged!(
+          options!.copyWith(
+            timeDilation: value ? 20.0 : 1.0,
+          ),
+        );
+      },
+      switchKey: const Key('slow_motion'),
+    );
+  }
+}
+
+class _PlatformItem extends StatelessWidget {
+  const _PlatformItem(this.options, this.onOptionsChanged);
+
+  final AppOptions? options;
+  final ValueChanged<AppOptions>? onOptionsChanged;
+
+  String? _platformLabel(TargetPlatform? platform) {
+    switch(platform) {
+      case TargetPlatform.android:
+        return 'Mountain View';
+      case TargetPlatform.fuchsia:
+        return 'Fuchsia';
+      case TargetPlatform.iOS:
+        return 'Cupertino';
+      case TargetPlatform.linux:
+        return 'Material Desktop (linux)';
+      case TargetPlatform.macOS:
+        return 'Material Desktop (macOS)';
+      case TargetPlatform.windows:
+        return 'Material Desktop (Windows)';
+      default:
+        assert(false);
+        return null;
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return _OptionsItem(
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                const Text('Platform mechanics'),
+                Text(
+                  _platformLabel(options!.platform)!,
+                  style: Theme.of(context).primaryTextTheme.bodyText2,
+                ),
+              ],
+            ),
+          ),
+          PopupMenuButton<TargetPlatform>(
+            padding: const EdgeInsetsDirectional.only(end: 16.0),
+            icon: const Icon(Icons.arrow_drop_down),
+            itemBuilder: (BuildContext context) {
+              return TargetPlatform.values.map((TargetPlatform platform) {
+                return PopupMenuItem<TargetPlatform>(
+                  value: platform,
+                  child: Text(_platformLabel(platform)!),
+                );
+              }).toList();
+            },
+            onSelected: (TargetPlatform platform) {
+              onOptionsChanged!(
+                options!.copyWith(platform: platform),
+              );
+            },
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class AppOptionsPage extends StatelessWidget {
+  const AppOptionsPage({
+    Key? key,
+    this.options,
+    this.onOptionsChanged,
+    this.onSendFeedback,
+  }) : super(key: key);
+
+  final AppOptions? options;
+  final ValueChanged<AppOptions>? onOptionsChanged;
+  final VoidCallback? onSendFeedback;
+
+  List<Widget> _enabledDiagnosticItems() {
+    // Boolean showFoo options with a value of null: don't display
+    // the showFoo option at all.
+    if (options == null)
+      return const <Widget>[];
+
+    return <Widget>[
+      const Divider(),
+      const _Heading('Diagnostics'),
+      _BooleanItem(
+        'Highlight offscreen layers',
+        options!.showOffscreenLayersCheckerboard,
+            (bool value) {
+          onOptionsChanged!(options!.copyWith(showOffscreenLayersCheckerboard: value));
+        },
+      ),
+      _BooleanItem(
+        'Highlight raster cache images',
+        options!.showRasterCacheImagesCheckerboard,
+            (bool value) {
+          onOptionsChanged!(options!.copyWith(showRasterCacheImagesCheckerboard: value));
+        },
+      ),
+      _BooleanItem(
+        'Show performance overlay',
+        options!.showPerformanceOverlay,
+            (bool value) {
+          onOptionsChanged!(options!.copyWith(showPerformanceOverlay: value));
+        },
+      ),
+    ];
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final ThemeData theme = Theme.of(context);
+
+    return DefaultTextStyle(
+      style: theme.primaryTextTheme.subtitle1!,
+      child: ListView(
+        padding: const EdgeInsets.only(bottom: 124.0),
+        children: <Widget>[
+          const _Heading('Display'),
+          _ThemeModeItem(options, onOptionsChanged),
+          _TextScaleFactorItem(options, onOptionsChanged),
+          _VisualDensityItem(options, onOptionsChanged),
+          _TextDirectionItem(options, onOptionsChanged),
+          _TimeDilationItem(options, onOptionsChanged),
+          const Divider(),
+          const ExcludeSemantics(child: _Heading('Platform mechanics')),
+          _PlatformItem(options, onOptionsChanged),
+          ..._enabledDiagnosticItems(),
+          const Divider(),
+          const _Heading('Flutter gallery'),
+          _ActionItem('About Flutter Gallery', () {
+            showGalleryAboutDialog(context);
+          }),
+          _ActionItem('Send feedback', onSendFeedback),
         ],
       ),
     );
