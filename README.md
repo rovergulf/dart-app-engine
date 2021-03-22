@@ -1,4 +1,5 @@
 [![Pub Package](https://img.shields.io/pub/v/dapp.svg)](https://pub.dev/packages/dapp)
+[![Flutter CI](https://github.com/rovergulf/dapp/actions/workflows/main.yml/badge.svg)](https://github.com/rovergulf/dapp/actions/workflows/main.yml)
 
 # Dart Application engine
 
