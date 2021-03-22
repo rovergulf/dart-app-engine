@@ -1,4 +1,4 @@
-import 'package:dapp/dapp.dart';
+import 'package:dapp/platform.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
