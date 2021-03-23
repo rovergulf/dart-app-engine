@@ -3,8 +3,8 @@
 
 # Flutter Application engine plugin
 
-### [pkg.dev](https://pub.dev/packages/dapp)
-A new flutter plugin project by [Rovergulf Engineers](https://rovergulf.net).
+### [pub.dev](https://pub.dev/packages/dapp)
+Flutter plugin project by [Rovergulf Engineers](https://rovergulf.net).
 
 ## Feature proposal:
 - https://github.com/rovergulf/dart-app-engine/issues/1

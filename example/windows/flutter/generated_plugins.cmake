@@ -3,6 +3,8 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
+  battery_plus_windows
+  connectivity_plus_windows
   dapp
   url_launcher_windows
 )

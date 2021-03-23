@@ -37,10 +37,6 @@
   "@unknownErr": {
     "description": "Unexpected error"
   },
-  "settingsLabel": "Settings",
-  "@settingsLabel": {
-    "description": "Title for the settings screen."
-  },
   "settingsTitle": "Settings",
   "@settingsTitle": {
     "description": "Title for the settings screen."
@@ -125,8 +121,8 @@
   "@settingsFeedback": {
     "description": "Title for feedback button."
   },
-  "settingsAttribution": "Designed by TOASTER in London",
+  "settingsAttribution": "Developed by Rovergulf Engineers",
   "@settingsAttribution": {
-    "description": "Title for attribution (TOASTER is a proper name and should remain in English)."
+    "description": "Title for attribution (Rovergulf Engineers is a proper name and should remain in English)."
   }
 }
