@@ -6,7 +6,7 @@ import 'package:flutter_localized_locales/flutter_localized_locales.dart';
 import 'package:flutter_gen/gen_l10n/dapp_localizations.dart';
 import 'package:dapp/about.dart' as about;
 import 'package:dapp/constants.dart';
-import 'package:dapp/data/options.dart';
+import 'package:dapp/app/options.dart';
 import 'package:dapp/layout/adaptive.dart';
 import 'package:dapp/settings_list_item.dart';
 import 'package:url_launcher/url_launcher.dart';

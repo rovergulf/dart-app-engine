@@ -1,23 +1,23 @@
 name: dapp
-description: Flutter engine application plugin
+description: A new Flutter package.
 version: 0.0.1
-author: Rovergulf Engineers
-homepage: https://github.com/rovergulf/dapp
+author:
+homepage:
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.20.0"
+  flutter: ">=1.17.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  flutter_web_plugins:
-    sdk: flutter
   flutter_localizations:
     sdk: flutter
   intl: ^0.17.0
-  flutter_localized_locales: ^2.0.1
+  google_fonts: ^2.0.0
   url_launcher: ^6.0.2
+  font_awesome_flutter: ^9.0.0
+  flutter_localized_locales: ^2.0.1
   adaptive_breakpoints: ^0.0.4
   package_info_plus: ^1.0.0
   connectivity_plus: ^1.0.0
@@ -35,28 +35,8 @@ dev_dependencies:
 # The following section is specific to Flutter.
 flutter:
   generate: true
-  # This section identifies this Flutter project as a plugin project.
-  # The 'pluginClass' and Android 'package' identifiers should not ordinarily
-  # be modified. They are used by the tooling to maintain consistency when
-  # adding or updating assets for this project.
-  plugin:
-    platforms:
-      android:
-        package: net.rovergulf.dapp
-        pluginClass: DappPlugin
-      ios:
-        pluginClass: DappPlugin
-      linux:
-        pluginClass: DappPlugin
-      macos:
-        pluginClass: DappPlugin
-      windows:
-        pluginClass: DappPlugin
-      web:
-        pluginClass: PlatformWeb
-        fileName: platform_web.dart
 
-  # To add assets to your plugin package, add an assets section, like this:
+  # To add assets to your package, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
@@ -67,7 +47,7 @@ flutter:
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
-  # To add custom fonts to your plugin package, add a fonts section here,
+  # To add custom fonts to your package, add a fonts section here,
   # in this "flutter" section. Each entry in this list should have a
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For

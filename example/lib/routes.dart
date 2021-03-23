@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 
-import 'home.dart';
+import 'pages/home.dart';
 
 class AppRoute {
   const AppRoute({

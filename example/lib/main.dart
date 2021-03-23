@@ -1,4 +1,4 @@
-import 'package:dapp_example/home.dart';
+import 'package:dapp_example/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/dapp_example_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -17,6 +17,7 @@ class _ExampleAppState extends State<ExampleApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: HomeRoute(),
+      debugShowCheckedModeBanner: false,
       onGenerateTitle: (BuildContext context) => AppLocalizations.of(context).appTitle,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: const [

@@ -1,11 +1,11 @@
 {
-    "name": "dapp_example",
-    "short_name": "dapp_example",
+    "name": "example",
+    "short_name": "example",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Demonstrates how to use the dapp plugin.",
+    "description": "A new Flutter project.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
