@@ -1,7 +1,7 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
-import 'package:dapp/data/options.dart';
+import 'package:dapp/app/options.dart';
 import 'package:flutter_gen/gen_l10n/dapp_localizations.dart';
 
 // Common constants between SlowMotionSetting and SettingsListItem.
@@ -45,7 +45,7 @@ class SlowMotionSetting extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text(
-                        GalleryLocalizations
+                        AppLocalizations
                             .of(context)
                             .settingsSlowMotion,
                         style: textTheme.subtitle1.apply(

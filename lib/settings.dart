@@ -3,9 +3,10 @@ import 'dart:collection';
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localized_locales/flutter_localized_locales.dart';
-import 'package:dapp/constants.dart';
-import 'package:dapp/data/options.dart';
 import 'package:flutter_gen/gen_l10n/dapp_localizations.dart';
+import 'package:dapp/about.dart' as about;
+import 'package:dapp/constants.dart';
+import 'package:dapp/app/options.dart';
 import 'package:dapp/layout/adaptive.dart';
 import 'package:dapp/settings_list_item.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -306,13 +307,8 @@ class _SettingsPageState extends State<SettingsPage> {
                 padding: const EdgeInsets.symmetric(horizontal: 32),
                 child: ExcludeSemantics(
                   child: Header(
-                    color: Theme
-                        .of(context)
-                        .colorScheme
-                        .onSurface,
-                    text: AppLocalizations
-                        .of(context)
-                        .settingsTitle,
+                    color: Theme.of(context).colorScheme.onSurface,
+                    text: AppLocalizations.of(context).settingsTitle,
                   ),
                 ),
               ),
@@ -375,6 +371,31 @@ class SettingsFeedback extends StatelessWidget {
           );
         }
       },
+    );
+  }
+}
+
+class Header extends StatelessWidget {
+  const Header({this.color, this.text});
+
+  final Color color;
+  final String text;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(
+        top: isDisplayDesktop(context) ? 63 : 15,
+        bottom: isDisplayDesktop(context) ? 21 : 11,
+      ),
+      child: Text(
+        text,
+        style: Theme.of(context).textTheme.headline4.apply(
+          color: color,
+          fontSizeDelta:
+          isDisplayDesktop(context) ? desktopDisplay1FontDelta : 0,
+        ),
+      ),
     );
   }
 }

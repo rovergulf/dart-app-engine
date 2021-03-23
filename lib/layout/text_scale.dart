@@ -1,15 +1,11 @@
-// Copyright 2019 The Flutter team. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
-
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-import 'package:gallery/data/gallery_options.dart';
+import 'package:dapp/app/options.dart';
 
 double _textScaleFactor(BuildContext context) {
-  return GalleryOptions.of(context).textScaleFactor(context);
+  return AppOptions.of(context).textScaleFactor(context);
 }
 
 // When text is larger, this factor becomes larger, but at half the rate.

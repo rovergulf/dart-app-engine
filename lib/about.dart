@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:package_info/package_info.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'package:flutter_gen/gen_l10n/dapp_localizations.dart';
@@ -118,10 +118,10 @@ class _AboutDialog extends StatelessWidget {
         //   },
         // ),
         TextButton(
-          child: Text(MaterialLocalizations.of(context).closeButtonLabel),
           onPressed: () {
             Navigator.pop(context);
           },
+          child: Text(MaterialLocalizations.of(context).closeButtonLabel),
         ),
       ],
     );

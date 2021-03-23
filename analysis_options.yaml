@@ -1,8 +1,10 @@
-include: package:pedantic/analysis_options.1.9.0.yaml
+include: package:pedantic/analysis_options.yaml
 
 analyzer:
   exclude:
     - lib/l10n/messages_*.dart
+    - example/**
+    - build/**
   strong-mode:
     implicit-casts: false
     implicit-dynamic: false

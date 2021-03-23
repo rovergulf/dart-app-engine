@@ -1,6 +1,6 @@
-# dapp_example
+# example
 
-Demonstrates how to use the dapp plugin.
+A new Flutter project.
 
 ## Getting Started
 

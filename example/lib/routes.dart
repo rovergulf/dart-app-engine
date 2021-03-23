@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-import 'home.dart';
+import 'pages/home.dart';
+import 'pages/settings.dart';
 
 class AppRoute {
   const AppRoute({
@@ -24,6 +25,10 @@ List<AppRoute> _buildAppRoutes() {
     AppRoute(
       routeName: HomeRoute.routeName,
       buildRoute: (BuildContext context) => HomeRoute(),
+    ),
+    AppRoute(
+      routeName: SettingsRoute.routeName,
+      buildRoute: (BuildContext context) => SettingsRoute(),
     ),
   ];
   return results;
